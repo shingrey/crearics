@@ -8,7 +8,7 @@ namespace crearics
         {
             Fechas f = new Fechas();
             CrearICS cr = new CrearICS();
-            cr.CreameEsta();
+            cr.CreameEsta("cesar@unprogramador.com", "Cesar Flores", "cesarflores2205@gmail.com", "hola lesbiano", 2018, 10, 13, 12, 1, 0, 2018, 10, 14, 20, 23, 49);
             Console.Write("------------------- \n");
             Console.Write("se creo archivo");
             Console.ReadKey();
@@ -37,7 +37,7 @@ namespace crearics
     }
     class CrearICS
     {
-        public void CreameEsta()
+        public void CreameEsta(string email, string nombreev, string emailor,string asunto,int ast, int mast, int dast, int hast, int mnast, int sast, int aed, int med, int ded, int hed, int mned, int sed)
         {
             Fechas f = new Fechas();
             string lugar = @"C:\Users\ceflor\Documents\";
@@ -57,16 +57,16 @@ namespace crearics
 VERSION:2.0
 PRODID:-//hacksw/handcal//NONSGML v1.0//EN
 BEGIN:VEVENT
-UID:cesar@softwarerb.com
-" + "DTSTAMP:" + f.Ahorawey() +
-                            "\nORGANIZER; CN=Cesar Doe:MAILTO:cesar@unprogramador.com" +
-                            "\nDTSTART:" + f.Regresameesta(2018, 10, 09, 12, 00, 00) +
-                            "\nDTEND:" + f.Regresameesta(2018, 10, 09, 15, 30, 00) +
-                            @"
-SUMMARY:Callate viejo lesbiano
-GEO:25.6534664;-100.3407974
-END:VEVENT
-END:VCALENDAR";
+UID:"+ email +
+                            "\nDTSTAMP:" + f.Ahorawey() +
+                            "\nORGANIZER; CN="+nombreev+":MAILTO:"+emailor +
+                            "\nDTSTART:" + f.Regresameesta(ast, mast, dast, hast, mnast, sast) +
+                            "\nDTEND:" + f.Regresameesta(aed, med, ded, hed, mned, sed) +
+
+                            "\nSUMMARY:" + asunto+
+                            "\nGEO:" + "25.6534664;-100.3407974"+
+                            "\nEND:VEVENT" +
+                            "\nEND:VCALENDAR";
                 mylogs.WriteLine(ics);
                 mylogs.Close();
             }
