@@ -7,8 +7,46 @@ namespace crearics
         static void Main(string[] args)
         {
             Fechas f = new Fechas();
+            Console.Write("Introduce email id (sirve para identificar)");
+            string emailid = Console.ReadLine();
+            Console.Write("\nNombre de organizador");
+            string nombreorg = Console.ReadLine();
+            Console.Write("\nEmail de organizador");
+            string tuEmail = Console.ReadLine();
+
+
+            Console.Write("\nAño inicio");
+            int anoin = Convert.ToInt16(Console.ReadLine());
+            Console.Write("\nmes inicio");
+            int mesin = Convert.ToInt16(Console.ReadLine());
+            Console.Write("\nDia inicio");
+            int diain = Convert.ToInt16(Console.ReadLine());
+
+            Console.Write("\nHora inicio 0-23");
+            int horain = Convert.ToInt16(Console.ReadLine());
+            Console.Write("\nMinutos inicio 0-59");
+            int minin = Convert.ToInt16(Console.ReadLine());
+            Console.Write("\nSegundos inicio 0-59");
+            int segin = Convert.ToInt16(Console.ReadLine());
+            
+            Console.Write("\nAño fin");
+            int anofin = Convert.ToInt16(Console.ReadLine());
+            Console.Write("\nmes fin");
+            int mesfin = Convert.ToInt16(Console.ReadLine());
+            Console.Write("\nDia fin");
+            int diafin = Convert.ToInt16(Console.ReadLine());
+            Console.Write("\nHora fin 0-23");
+            int horafin = Convert.ToInt16(Console.ReadLine());
+            Console.Write("\nMin fin 0-59");
+            int minfin = Convert.ToInt16(Console.ReadLine());
+            Console.Write("\nSegundo fin 0-59");
+            int segfin = Convert.ToInt16(Console.ReadLine());
+
+            Console.Write("\nAsunto no max-60");
+            string asunto = Console.ReadLine();
+            
             CrearICS cr = new CrearICS();
-            cr.CreameEsta("cesar@unprogramador.com", "Cesar Flores", "cesarflores2205@gmail.com", "hola lesbiano", 2018, 10, 13, 12, 1, 0, 2018, 10, 14, 20, 23, 49);
+            cr.CreameEsta(emailid, nombreorg, tuEmail, asunto, anoin, mesin, diain, horain, minin, segin, anofin, mesfin, diafin, horafin, minfin, segfin);
             Console.Write("------------------- \n");
             Console.Write("se creo archivo");
             Console.ReadKey();
