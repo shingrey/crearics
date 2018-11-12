@@ -7,8 +7,10 @@ namespace crearics
         static void Main(string[] args)
         {
             Fechas f = new Fechas();
-            Console.Write("Introduce email id (sirve para identificar)");
+            Console.Write("Introduce email del invitado");
             string emailid = Console.ReadLine();
+            Console.Write("Nombre del invitado");
+            string nameinv = Console.ReadLine();
             Console.Write("\nNombre de organizador");
             string nombreorg = Console.ReadLine();
             Console.Write("\nEmail de organizador");
@@ -46,9 +48,10 @@ namespace crearics
             string asunto = Console.ReadLine();
             
             CrearICS cr = new CrearICS();
-            cr.CreameEsta(emailid, nombreorg, tuEmail, asunto, anoin, mesin, diain, horain, minin, segin, anofin, mesfin, diafin, horafin, minfin, segfin);
+            cr.CreameEsta(emailid, nameinv, nombreorg, tuEmail, asunto, anoin, mesin, diain, horain, minin, segin, anofin, mesfin, diafin, horafin, minfin, segfin);
             Console.Write("------------------- \n");
             Console.Write("se creo archivo");
+            Console.Write("\n------------------- \n");
             Console.ReadKey();
         }
         
@@ -75,20 +78,14 @@ namespace crearics
     }
     class CrearICS
     {
-        public void CreameEsta(string email, string nombreev, string emailor,string asunto,int ast, int mast, int dast, int hast, int mnast, int sast, int aed, int med, int ded, int hed, int mned, int sed)
+        public void CreameEsta(string email, string nombreinv, string nombreev, string emailor,string asunto,int ast, int mast, int dast, int hast, int mnast, int sast, int aed, int med, int ded, int hed, int mned, int sed)
         {
             Fechas f = new Fechas();
-            string lugar = @"C:\Users\ceflor\Documents\";
+            //string lugar = @"C:\Users\ceflor\Documents\";
+            string lugar = "./evento/";
             System.IO.Directory.CreateDirectory(lugar);
             string nombre = "prueba" + DateTime.Now.ToString("ddMMyyyyss") + ".ics";
             lugar = System.IO.Path.Combine(lugar, nombre);
-            /*using (System.IO.FileStream fs = System.IO.File.Create(lugar))
-            {
-                
-                fs.Write
-
-
-            }*/
             using (System.IO.StreamWriter mylogs = System.IO.File.AppendText(lugar))
             {
                 String ics = @"BEGIN:VCALENDAR
@@ -108,6 +105,10 @@ UID:"+ email +
                 mylogs.WriteLine(ics);
                 mylogs.Close();
             }
+            Console.Write("\n------------------- \n");
+            email mail = new email(email, nombreinv, emailor, nombre, nombreev);
+            Console.Write("correo enviado");
+
         }
     }
 }
