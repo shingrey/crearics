@@ -81,7 +81,9 @@ namespace crearics
         public void CreameEsta(string email, string nombreinv, string nombreev, string emailor,string asunto,int ast, int mast, int dast, int hast, int mnast, int sast, int aed, int med, int ded, int hed, int mned, int sed)
         {
             Fechas f = new Fechas();
+            //especifico en windows
             //string lugar = @"C:\Users\ceflor\Documents\";
+            //mac y windows
             string lugar = "./evento/";
             System.IO.Directory.CreateDirectory(lugar);
             string nombre = "prueba" + DateTime.Now.ToString("ddMMyyyyss") + ".ics";
